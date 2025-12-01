@@ -18,7 +18,7 @@ import { useAppContext } from "../../providers/AppProvider";
 import { Divider } from "@mui/material";
 import BottomVerticalBG from "../../assets/ps-bg-bottom-vertical-v2.jpeg";
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 const navItems = [
   {
     label: "WELCOME",
@@ -27,10 +27,6 @@ const navItems = [
   {
     label: "ABOUT",
     path: "/about",
-  },
-  {
-    label: "VENUE",
-    path: "/venue",
   },
   {
     label: "GALLERY",
@@ -43,7 +39,7 @@ const navItems = [
 ];
 
 const checkIsLight = (path: string) =>
-  ["/about", "/venue", "/gallery"].includes(path);
+  ["/about", "/about/details", "/about/venue"].includes(path);
 
 export default function DrawerAppBar({
   children,
@@ -148,27 +144,34 @@ export default function DrawerAppBar({
             </Typography>
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item, key) => (
-              <Link key={key} to={item.path}>
-                <Button
-                  disableElevation
-                  sx={{
-                    color: isLight ? "#fff" : "#000",
-                    fontFamily: "Red Hat Display",
-                    letterSpacing: "0.2rem",
-                    textTransform: "none",
-                    borderRadius: 0,
-                    borderBottom:
-                      currentPath === item.path
-                        ? `3px solid ${isLight ? "#fff" : blue[800]}`
+            {navItems.map((item, key) => {
+              const isRoot = item.path === "/" && currentPath === "/";
+
+              return (
+                <Link key={key} to={item.path}>
+                  <Button
+                    disableElevation
+                    sx={{
+                      color: isLight ? "#fff" : "#000",
+                      fontFamily: "Red Hat Display",
+                      letterSpacing: "0.2rem",
+                      textTransform: "none",
+                      borderRadius: 0,
+                      borderBottom: isRoot
+                        ? `3px solid ${blue[800]}`
+                        : currentPath.includes(item.path)
+                        ? item.path !== "/"
+                          ? `3px solid ${isLight ? "#fff" : blue[800]}`
+                          : "none"
                         : "none",
-                    mx: 1,
-                  }}
-                >
-                  {item.label}
-                </Button>
-              </Link>
-            ))}
+                      mx: 1,
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                </Link>
+              );
+            })}
           </Box>
         </Toolbar>
       </AppBar>

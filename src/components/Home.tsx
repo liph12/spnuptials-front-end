@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import StyledText from "./utils/StyledText";
 import Footer from "./layouts/Footer";
 import { useAppContext } from "../providers/AppProvider";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 interface Countdown {
   days: number;
@@ -68,6 +69,7 @@ export default function Home() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              paddingBottom: 10,
             }}
           >
             <Box
@@ -151,6 +153,7 @@ export default function Home() {
                         fontFamily: "Red Hat Display",
                         letterSpacing: "0.2rem",
                       }}
+                      startIcon={<ArrowOutwardIcon />}
                     >
                       View Details
                     </Button>
