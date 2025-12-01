@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { TypographyProps } from "@mui/material";
 import { Typography } from "@mui/material";
+import { useAppContext } from "../../providers/AppProvider";
 
 export default function StyledText({
   children,
@@ -8,6 +9,8 @@ export default function StyledText({
 }: {
   children: ReactNode;
 } & TypographyProps) {
+  const { desktop } = useAppContext();
+
   return (
     <Typography
       variant="body1"
@@ -18,7 +21,7 @@ export default function StyledText({
         fontWeight: 500,
         fontOpticalSizing: "auto",
         fontStyle: "normal",
-        letterSpacing: "0.2rem",
+        letterSpacing: desktop ? "0.2rem" : "none",
         ...(props.sx || {}),
       }}
       {...props}

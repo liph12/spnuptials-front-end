@@ -7,6 +7,8 @@ import Content from "./layouts/Content";
 import StyledLineSeparator from "./utils/StyledLineSeparator";
 import { Link } from "react-router-dom";
 import StyledText from "./utils/StyledText";
+import Footer from "./layouts/Footer";
+import { useAppContext } from "../providers/AppProvider";
 
 interface Countdown {
   days: number;
@@ -16,6 +18,7 @@ interface Countdown {
 }
 
 export default function Home() {
+  const { desktop } = useAppContext();
   const [countdown, setCountdown] = useState<Countdown>({
     days: 0,
     hours: 0,
@@ -57,7 +60,7 @@ export default function Home() {
           <Box
             sx={{
               width: "100%",
-              height: "95vh",
+              height: "100vh",
               backgroundImage: `url(${HeroBG})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -72,30 +75,34 @@ export default function Home() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: 5,
               }}
             >
               <Stack sx={{ textAlign: "center" }} spacing={4}>
+                <StyledText variant={desktop ? "h5" : "h6"} lineHeight={3}>
+                  THE WEDDING OF
+                </StyledText>
+                <Box sx={{ width: "30vw", textAlign: "left" }}>
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      color: blue[800],
+                      fontFamily: "Kapakana",
+                      fontSize: desktop ? 150 : 80,
+                      fontWeight: 500,
+                      fontOpticalSizing: "auto",
+                      lineHeight: 0.5,
+                      fontStyle: "normal",
+                    }}
+                  >
+                    Philip
+                  </Typography>
+                </Box>
                 <Typography
                   variant="h1"
                   sx={{
                     color: blue[800],
                     fontFamily: "Kapakana",
-                    fontSize: 120,
-                    fontWeight: 500,
-                    fontOpticalSizing: "auto",
-                    lineHeight: 0.5,
-                    fontStyle: "normal",
-                  }}
-                >
-                  Philip
-                </Typography>
-                <Typography
-                  variant="h1"
-                  sx={{
-                    color: blue[800],
-                    fontFamily: "Kapakana",
-                    fontSize: 130,
+                    fontSize: desktop ? 130 : 60,
                     fontWeight: 500,
                     fontOpticalSizing: "auto",
                     lineHeight: 0.5,
@@ -104,23 +111,30 @@ export default function Home() {
                 >
                   &
                 </Typography>
-                <Typography
-                  variant="h1"
-                  sx={{
-                    color: blue[800],
-                    fontFamily: "Kapakana",
-                    fontSize: 120,
-                    fontWeight: 500,
-                    fontOpticalSizing: "auto",
-                    lineHeight: 0.5,
-                    fontStyle: "normal",
-                  }}
+                <Box
+                  sx={{ width: desktop ? "30vw" : "100%", textAlign: "right" }}
                 >
-                  Sharlyn
-                </Typography>
-                <StyledLineSeparator width={180} color={blue[900]} />
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      color: blue[800],
+                      fontFamily: "Kapakana",
+                      fontSize: desktop ? 150 : 80,
+                      fontWeight: 500,
+                      fontOpticalSizing: "auto",
+                      lineHeight: 0.5,
+                      fontStyle: "normal",
+                    }}
+                  >
+                    Sharlyn
+                  </Typography>
+                </Box>
+                <StyledLineSeparator
+                  width={desktop ? 200 : 120}
+                  color={blue[900]}
+                />
                 <StyledText variant="h5" lineHeight={0.7}>
-                  JANUARY 11, 2026 · 2PM
+                  01 · 11 · 2026 · 2PM
                 </StyledText>
                 <StyledText variant="body1" lineHeight={0.7}>
                   {countdown.days} DAYS · {countdown.hours} H ·{" "}
@@ -147,6 +161,7 @@ export default function Home() {
           </Box>
         </Content>
       </DrawerAppBar>
+      <Footer />
     </>
   );
 }

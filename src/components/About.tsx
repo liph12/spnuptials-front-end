@@ -2,19 +2,19 @@ import { Box, Typography, Button, Container } from "@mui/material";
 import DrawerAppBar from "./layouts/DrawerAppBar";
 import Content from "./layouts/Content";
 import HeroBG from "../assets/ps-bg-hero-about.jpg";
-import BottomVerticalBG from "../assets/ps-bg-bottom-verticial-v1.png";
+import BottomVerticalBG from "../assets/ps-bg-bottom-vertical-v2.jpeg";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import { blue } from "@mui/material/colors";
 import StyledLineSeparator from "./utils/StyledLineSeparator";
 import StyledText from "./utils/StyledText";
 import StyledTextCursiveSm from "./utils/StyledTextCursiveSm";
-import { useRef } from "react";
+import { useAppContext } from "../providers/AppProvider";
 
 export default function About() {
-  const targetRef = useRef<HTMLDivElement | null>(null);
+  const { sectionRef, desktop } = useAppContext();
 
   const scrollToSection = () => {
-    targetRef.current?.scrollIntoView({
+    sectionRef.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
@@ -52,13 +52,13 @@ export default function About() {
               zIndex: 2,
             }}
           >
-            <Box sx={{ textAlign: "center", width: "50vw" }}>
+            <Box sx={{ textAlign: "center", width: desktop ? "50vw" : "80vw" }}>
               <Typography
                 variant="h1"
                 sx={{
                   color: "#fff",
                   fontFamily: "Kapakana",
-                  fontSize: 120,
+                  fontSize: desktop ? 120 : 80,
                   fontWeight: 500,
                   lineHeight: 0.8,
                   fontOpticalSizing: "auto",
@@ -69,7 +69,7 @@ export default function About() {
               </Typography>
               <StyledLineSeparator width={300} />
               <Typography
-                variant="body1"
+                variant={desktop ? "body1" : "body2"}
                 component="div"
                 sx={{
                   color: "#fff",
@@ -77,7 +77,7 @@ export default function About() {
                   fontWeight: 500,
                   fontOpticalSizing: "auto",
                   fontStyle: "normal",
-                  letterSpacing: "0.2rem",
+                  letterSpacing: desktop ? "0.2rem" : "0.1rem",
                 }}
               >
                 We invite you to explore our story, discover the details of our
@@ -104,7 +104,7 @@ export default function About() {
           </Box>
         </Box>
         <Box
-          ref={targetRef}
+          ref={sectionRef}
           sx={{
             width: "100%",
             height: "100%",
@@ -122,7 +122,7 @@ export default function About() {
                 sx={{
                   color: blue[900],
                   fontFamily: "Kapakana",
-                  fontSize: 90,
+                  fontSize: desktop ? 90 : 50,
                   fontWeight: 500,
                   lineHeight: 0.8,
                   fontOpticalSizing: "auto",
@@ -133,7 +133,7 @@ export default function About() {
               </Typography>
               <StyledText>NUPTIALS</StyledText>
               <StyledLineSeparator width={250} color={blue[900]} />
-              <StyledText>
+              <StyledText fontSize={desktop ? 17 : 15}>
                 In gratitude to God who brought us together and with the
                 Blessings of our Beloved parents.
               </StyledText>
@@ -144,8 +144,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Allan M. Libres</StyledText>
-                  <StyledText>Salvador F. Castro</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Allan M. Libres
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Salvador F. Castro
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -153,8 +157,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Algen Joy L. Nayre</StyledText>
-                  <StyledText>Helen R. Castro</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Algen Joy L. Nayre
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Helen R. Castro
+                  </StyledText>
                 </Box>
               </Box>
               <Box sx={{ my: 3 }}>
@@ -183,8 +191,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Cpt. Alberto R. Vergara</StyledText>
-                  <StyledText>Mrs. Lilibeth F. Vergara</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Cpt. Alberto R. Vergara
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mrs. Lilibeth F. Vergara
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -192,8 +204,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Hon. Benito A. Beray</StyledText>
-                  <StyledText>Mrs. Dionisia P. Beray</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Hon. Benito A. Beray
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mrs. Dionisia P. Beray
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -201,8 +217,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Hon. Danilo Castro</StyledText>
-                  <StyledText>Hon. Merlie S. Tabudlong</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Hon. Danilo Castro
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Hon. Merlie S. Tabudlong
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -210,8 +230,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Hon. Raffy Dedal</StyledText>
-                  <StyledText>Mrs. Madelyn Dedal</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Hon. Raffy Dedal
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mrs. Madelyn Dedal
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -219,8 +243,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Mr. Ruhuel Libres</StyledText>
-                  <StyledText>Mrs. Lea Libres</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mr. Ruhuel Libres
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mrs. Lea Libres
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -228,8 +256,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Mr. Benjamin Ejada</StyledText>
-                  <StyledText>Mrs. Gleceria Ejada</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mr. Benjamin Ejada
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mrs. Gleceria Ejada
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -237,8 +269,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Mr. Titulano Libres</StyledText>
-                  <StyledText>Mrs. Honoria Urdaneta</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mr. Titulano Libres
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mrs. Honoria Urdaneta
+                  </StyledText>
                 </Box>
               </Box>
               <Box sx={{ my: 3 }}>
@@ -273,8 +309,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Nelson D. Libres</StyledText>
-                  <StyledText>Marmi Jane Taboada</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Nelson D. Libres
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Marmi Jane Taboada
+                  </StyledText>
                 </Box>
               </Box>
               <Box sx={{ my: 3 }}>
@@ -293,8 +333,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Zhedryl R. Castro</StyledText>
-                  <StyledText>Kharlyn L. Nayre</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Zhedryl R. Castro
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Kharlyn L. Nayre
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -302,8 +346,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Xhander R. Castro</StyledText>
-                  <StyledText>Steffany A. Libres</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Xhander R. Castro
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Steffany A. Libres
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -311,8 +359,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Ivan L. Nayre</StyledText>
-                  <StyledText>Leah Ejada</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Ivan L. Nayre
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Leah Ejada
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -320,8 +372,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Ace Wendell L. Nayre</StyledText>
-                  <StyledText>Precious Mae Urdaneta</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Ace Wendell L. Nayre
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Precious Mae Urdaneta
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -329,8 +385,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Jecomar Boyonas</StyledText>
-                  <StyledText>Jerah Mae Guimbal</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Jecomar Boyonas
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Jerah Mae Guimbal
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -338,8 +398,13 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText> Jan Marcel Fernandez</StyledText>
-                  <StyledText>Lizzly Ejada</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    {" "}
+                    Jan Marcel Fernandez
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Lizzly Ejada
+                  </StyledText>
                 </Box>
                 <Box
                   sx={{
@@ -347,8 +412,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>John Mark C. Nitro</StyledText>
-                  <StyledText>Karleen Faye Castro</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    John Mark C. Nitro
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Karleen Faye Castro
+                  </StyledText>
                 </Box>
               </Box>
               <Box sx={{ my: 3 }}>
@@ -364,8 +433,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Mr. Alfred Elison</StyledText>
-                  <StyledText>Ms. Pinky Shanyne Lirasan</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Mr. Alfred Elison
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Ms. Pinky Shanyne Lirasan
+                  </StyledText>
                 </Box>
               </Box>
               <Box sx={{ my: 3 }}>
@@ -389,8 +462,12 @@ export default function About() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <StyledText>Axel B. Aragon</StyledText>
-                  <StyledText>Johan Miles L. Mayone</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Axel B. Aragon
+                  </StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Johan Miles L. Mayone
+                  </StyledText>
                 </Box>
               </Box>
               <Box sx={{ my: 3 }}>
@@ -400,21 +477,31 @@ export default function About() {
                     TO SHOWER THE AISLE WITH FLOWERS
                   </StyledText>
                 </Box>
-                <StyledText>Princess Jhylyne Braga</StyledText>
-                <StyledText>Althea P. Castro</StyledText>
-                <StyledText>Ann Murraine L. Mayone</StyledText>
+                <StyledText fontSize={desktop ? 16 : 13}>
+                  Princess Jhylyne Braga
+                </StyledText>
+                <StyledText fontSize={desktop ? 16 : 13}>
+                  Althea P. Castro
+                </StyledText>
+                <StyledText fontSize={desktop ? 16 : 13}>
+                  Ann Murraine L. Mayone
+                </StyledText>
                 <Box sx={{ my: 2 }}>
                   <StyledTextCursiveSm>
                     Officiating Minister
                   </StyledTextCursiveSm>
-                  <StyledText>Ptr. Jessie M. Garzon</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Ptr. Jessie M. Garzon
+                  </StyledText>
                 </Box>
                 <Box sx={{ my: 2 }}>
                   <StyledTextCursiveSm>Singer</StyledTextCursiveSm>
                   <StyledText fontSize={13}>
                     TO SET THE MOOD AND TONE FOR OUR SPECIAL DAY
                   </StyledText>
-                  <StyledText>Ms. Nelsie Asilum</StyledText>
+                  <StyledText fontSize={desktop ? 16 : 13}>
+                    Ms. Nelsie Asilum
+                  </StyledText>
                 </Box>
               </Box>
               <StyledLineSeparator width={250} color={blue[900]} />
