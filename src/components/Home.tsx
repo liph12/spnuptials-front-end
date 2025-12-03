@@ -87,7 +87,7 @@ export default function Home() {
                   <Typography
                     variant="h1"
                     sx={{
-                      color: blue[800],
+                      color: blue[900],
                       fontFamily: "Kapakana",
                       fontSize: desktop ? 150 : 80,
                       fontWeight: 500,
@@ -102,7 +102,7 @@ export default function Home() {
                 <Typography
                   variant="h1"
                   sx={{
-                    color: blue[800],
+                    color: blue[900],
                     fontFamily: "Kapakana",
                     fontSize: desktop ? 130 : 60,
                     fontWeight: 500,
@@ -119,7 +119,7 @@ export default function Home() {
                   <Typography
                     variant="h1"
                     sx={{
-                      color: blue[800],
+                      color: blue[900],
                       fontFamily: "Kapakana",
                       fontSize: desktop ? 150 : 80,
                       fontWeight: 500,

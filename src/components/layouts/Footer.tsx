@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { useAppContext } from "../../providers/AppProvider";
 import StyledTextLight from "../utils/StyledTextLight";
 import CallTwoToneIcon from "@mui/icons-material/CallTwoTone";
