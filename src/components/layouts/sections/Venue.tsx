@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography, Stack, Link } from "@mui/material";
+import { Box, Button, Container, Typography, Link } from "@mui/material";
 import StyledText from "../../utils/StyledText";
 import ChurchRoundedIcon from "@mui/icons-material/ChurchRounded";
 import BrunchDiningRoundedIcon from "@mui/icons-material/BrunchDiningRounded";

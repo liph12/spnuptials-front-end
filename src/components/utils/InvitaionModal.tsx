@@ -2,9 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
 import { useAppContext } from "../../providers/AppProvider";
 import StyledText from "./StyledText";
-import StyledTextCursiveMd from "./StyledTextCursiveSm";
 import StyledLineSeparator from "./StyledLineSeparator";
 import { blue } from "@mui/material/colors";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
@@ -14,19 +14,27 @@ import { useEffect } from "react";
 const invitations = [
   {
     id: "inv-001",
-    name: "Libres & Family",
+    nameA: "Libres Family",
+    nameB: "",
+    combined: false,
   },
   {
     id: "inv-002",
-    name: "Castro & Family",
+    nameA: "Castro Family",
+    nameB: "",
+    combined: false,
   },
   {
     id: "inv-003",
-    name: "Cpt. Alberto R. Vergara & Mrs. Lilibeth F. Vergara",
+    nameA: "Mr. and Mrs. Alberto Vergara ",
+    nameB: "",
+    combined: false,
   },
   {
     id: "inv-004",
-    name: "Sir Anthony Leuterio & Family",
+    nameA: "Sir Anthony Leuterio",
+    nameB: "Family",
+    combined: true,
   },
 ];
 
@@ -63,14 +71,50 @@ export default function InvitationModal() {
     <div>
       <Modal open={open}>
         <Box sx={style}>
-          <StyledText variant="h6" component="h2">
-            Request the pleasure of your company at our wedding celebration.
+          <StyledText variant="body1" component="h2" textAlign="center">
+            You are invited to share the moment we become one.
           </StyledText>
           <StyledLineSeparator width={desktop ? 200 : 150} color={blue[900]} />
-          <StyledTextCursiveMd textAlign="center">
-            {invitationValue?.name ?? "You are Invited"}
-          </StyledTextCursiveMd>
-          <Box sx={{ textAlign: "center", mt: 5 }}>
+          {invitationValue?.nameA && (
+            <>
+              {invitationValue.combined ? (
+                <>
+                  <Typography
+                    variant={desktop ? "h3" : "h4"}
+                    textAlign="center"
+                    sx={{ fontFamily: "Kapakana", lineHeight: 0.8 }}
+                  >
+                    {invitationValue.nameA}
+                  </Typography>
+                  <Typography
+                    variant={desktop ? "h3" : "h4"}
+                    textAlign="center"
+                    sx={{ fontFamily: "Kapakana", lineHeight: 0.8 }}
+                  >
+                    &
+                  </Typography>
+                  <Typography
+                    variant={desktop ? "h3" : "h4"}
+                    textAlign="center"
+                    sx={{ fontFamily: "Kapakana", lineHeight: 0.8 }}
+                  >
+                    {invitationValue.nameB}
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  <Typography
+                    variant={desktop ? "h3" : "h4"}
+                    textAlign="center"
+                    sx={{ fontFamily: "Kapakana", lineHeight: 0.8 }}
+                  >
+                    {invitationValue.nameA}
+                  </Typography>
+                </>
+              )}
+            </>
+          )}
+          <Box sx={{ textAlign: "center", mt: 3 }}>
             <Button
               disableElevation
               variant="contained"

@@ -1,6 +1,6 @@
 import DrawerAppBar from "./layouts/DrawerAppBar";
 import { Box, Typography, Stack, Button } from "@mui/material";
-import HeroBGMobilev1 from "../assets/ps-bg-hero-home-mobile-v1.jpg";
+import HeroBGMobilev1 from "../assets/ps-bg-hero-home-v1.jpg";
 import HeroBGv2 from "../assets/ps-bg-hero-home-v2.jpg";
 import { useState, useEffect } from "react";
 import Content from "./layouts/Content";
