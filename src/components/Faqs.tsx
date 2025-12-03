@@ -1,8 +1,9 @@
 import DrawerAppBar from "./layouts/DrawerAppBar";
 import Content from "./layouts/Content";
-import { Box } from "@mui/material";
-import StyledText from "./utils/StyledText";
+import { Box, Container } from "@mui/material";
 import Footer from "./layouts/Footer";
+import HeroBG from "../assets/ps-bg-hero-home-v1.png";
+import FaqsAccordion from "./utils/FaqsAccordion";
 
 export default function Faqs() {
   return (
@@ -13,12 +14,18 @@ export default function Faqs() {
             sx={{
               width: "100%",
               height: "100vh",
+              backgroundImage: `url(${HeroBG})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <StyledText variant="h5">Page is Under Construction.</StyledText>
+            <Container maxWidth="md">
+              <FaqsAccordion />
+            </Container>
           </Box>
         </Content>
       </DrawerAppBar>

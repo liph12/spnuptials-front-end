@@ -4,7 +4,7 @@ import Content from "./layouts/Content";
 import HeroBG from "../assets/ps-bg-hero-about.jpg";
 import BottomVerticalBG from "../assets/ps-bg-bottom-vertical-v2.jpeg";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
-import ChurchOutlinedIcon from "@mui/icons-material/ChurchOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import StyledLineSeparator from "./utils/StyledLineSeparator";
 import { useAppContext } from "../providers/AppProvider";
@@ -18,7 +18,7 @@ const navItems = [
   {
     label: "Nuptials",
     path: "/about",
-    icon: <ChurchOutlinedIcon />,
+    icon: <FavoriteIcon />,
   },
   {
     label: "Details",

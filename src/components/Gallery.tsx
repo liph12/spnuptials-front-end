@@ -1,9 +1,17 @@
 import DrawerAppBar from "./layouts/DrawerAppBar";
 import Content from "./layouts/Content";
-import { Box, Typography, IconButton, Modal, Fade } from "@mui/material";
+import {
+  Box,
+  Typography,
+  IconButton,
+  Modal,
+  Fade,
+  Container,
+} from "@mui/material";
 import StyledLineSeparator from "./utils/StyledLineSeparator";
 import Footer from "./layouts/Footer";
 import HeroBG from "../assets/ps-bg-hero-home-v1.png";
+import BottomVerticalBG from "../assets/ps-bg-bottom-vertical-v2.jpeg";
 import { useAppContext } from "../providers/AppProvider";
 import { blue } from "@mui/material/colors";
 import { ChevronLeft, ChevronRight, Close } from "@mui/icons-material";
@@ -14,7 +22,7 @@ export default function Gallery() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
-  const { desktop } = useAppContext();
+  const { desktop, sectionRef } = useAppContext();
 
   const galleryImages = [
     {
@@ -57,7 +65,6 @@ export default function Gallery() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              paddingBottom: 10,
             }}
           >
             <Box
@@ -83,7 +90,7 @@ export default function Gallery() {
                     fontStyle: "normal",
                   }}
                 >
-                  Our Love Story
+                  Our Gallery
                 </Typography>
                 <StyledLineSeparator
                   width={desktop ? 250 : 120}
@@ -104,143 +111,158 @@ export default function Gallery() {
                   Captured moments from the most beautiful day of our lives.
                   Every photograph tells a story of love, joy, and celebration.
                 </Typography>
-                <GalleryGrid
-                  images={galleryImages}
-                  onImageClick={setSelectedImageIndex}
-                />
-                <Modal
-                  open={selectedImageIndex !== null}
-                  onClose={() => setSelectedImageIndex(null)}
-                  closeAfterTransition
+              </Box>
+            </Box>
+          </Box>
+          <Box
+            ref={sectionRef}
+            sx={{
+              width: "100%",
+              height: "100%",
+              backgroundImage: `url(${BottomVerticalBG})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              paddingY: 5,
+            }}
+          >
+            <Container maxWidth="lg" sx={{ paddingTop: 3, paddingBottom: 8 }}>
+              <GalleryGrid
+                images={galleryImages}
+                onImageClick={setSelectedImageIndex}
+              />
+            </Container>
+            <Modal
+              open={selectedImageIndex !== null}
+              onClose={() => setSelectedImageIndex(null)}
+              closeAfterTransition
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backdropFilter: "blur(4px)",
+                background: "rgba(0, 0, 0, 0.85)",
+              }}
+            >
+              <Fade in={selectedImageIndex !== null}>
+                <Box
                   sx={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    backdropFilter: "blur(4px)",
-                    background: "rgba(0, 0, 0, 0.85)",
+                    p: 2,
                   }}
                 >
-                  <Fade in={selectedImageIndex !== null}>
-                    <Box
-                      sx={{
-                        position: "relative",
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        p: 2,
-                      }}
-                    >
-                      {selectedImageIndex !== null && (
-                        <>
-                          {/* Main Image */}
-                          <Box
-                            component="img"
-                            src={galleryImages[selectedImageIndex].src}
-                            alt={galleryImages[selectedImageIndex].title}
-                            sx={{
-                              maxWidth: "90%",
-                              maxHeight: "90vh",
-                              objectFit: "contain",
-                              borderRadius: "4px",
-                            }}
-                          />
+                  {selectedImageIndex !== null && (
+                    <>
+                      {/* Main Image */}
+                      <Box
+                        component="img"
+                        src={galleryImages[selectedImageIndex].src}
+                        alt={galleryImages[selectedImageIndex].title}
+                        sx={{
+                          maxWidth: "90%",
+                          maxHeight: "90vh",
+                          objectFit: "contain",
+                          borderRadius: "4px",
+                        }}
+                      />
 
-                          {/* Image Info */}
-                          <Box
-                            sx={{
-                              position: "absolute",
-                              bottom: 32,
-                              left: 32,
-                              color: "white",
-                              zIndex: 1,
-                            }}
-                          >
-                            <Typography
-                              variant="h6"
-                              sx={{
-                                fontWeight: 300,
-                                letterSpacing: "0.5px",
-                                fontSize: "1.1rem",
-                              }}
-                            >
-                              {galleryImages[selectedImageIndex].title}
-                            </Typography>
-                            <Typography
-                              variant="caption"
-                              sx={{
-                                opacity: 0.7,
-                                fontSize: "0.875rem",
-                                letterSpacing: "0.3px",
-                              }}
-                            >
-                              {selectedImageIndex + 1} / {galleryImages.length}
-                            </Typography>
-                          </Box>
+                      {/* Image Info */}
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          bottom: 32,
+                          left: 32,
+                          color: "white",
+                          zIndex: 1,
+                        }}
+                      >
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontWeight: 300,
+                            letterSpacing: "0.5px",
+                            fontSize: "1.1rem",
+                          }}
+                        >
+                          {galleryImages[selectedImageIndex].title}
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            opacity: 0.7,
+                            fontSize: "0.875rem",
+                            letterSpacing: "0.3px",
+                          }}
+                        >
+                          {selectedImageIndex + 1} / {galleryImages.length}
+                        </Typography>
+                      </Box>
 
-                          {/* Navigation Buttons */}
-                          <IconButton
-                            onClick={handlePrevious}
-                            sx={{
-                              position: "absolute",
-                              left: 16,
-                              top: "50%",
-                              transform: "translateY(-50%)",
-                              color: "white",
-                              backgroundColor: "rgba(255, 255, 255, 0.1)",
-                              backdropFilter: "blur(10px)",
-                              "&:hover": {
-                                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                              },
-                              transition: "all 0.3s ease",
-                            }}
-                          >
-                            <ChevronLeft fontSize="medium" />
-                          </IconButton>
+                      {/* Navigation Buttons */}
+                      <IconButton
+                        onClick={handlePrevious}
+                        sx={{
+                          position: "absolute",
+                          left: 16,
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          color: "white",
+                          backgroundColor: "rgba(255, 255, 255, 0.1)",
+                          backdropFilter: "blur(10px)",
+                          "&:hover": {
+                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                          },
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        <ChevronLeft fontSize="medium" />
+                      </IconButton>
 
-                          <IconButton
-                            onClick={handleNext}
-                            sx={{
-                              position: "absolute",
-                              right: 16,
-                              top: "50%",
-                              transform: "translateY(-50%)",
-                              color: "white",
-                              backgroundColor: "rgba(255, 255, 255, 0.1)",
-                              backdropFilter: "blur(10px)",
-                              "&:hover": {
-                                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                              },
-                              transition: "all 0.3s ease",
-                            }}
-                          >
-                            <ChevronRight fontSize="medium" />
-                          </IconButton>
-                          <IconButton
-                            onClick={() => setSelectedImageIndex(null)}
-                            sx={{
-                              position: "absolute",
-                              top: 16,
-                              right: 16,
-                              color: "white",
-                              backgroundColor: "rgba(255, 255, 255, 0.1)",
-                              backdropFilter: "blur(10px)",
-                              "&:hover": {
-                                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                              },
-                              transition: "all 0.3s ease",
-                            }}
-                          >
-                            <Close fontSize="medium" />
-                          </IconButton>
-                        </>
-                      )}
-                    </Box>
-                  </Fade>
-                </Modal>
-              </Box>
-            </Box>
+                      <IconButton
+                        onClick={handleNext}
+                        sx={{
+                          position: "absolute",
+                          right: 16,
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          color: "white",
+                          backgroundColor: "rgba(255, 255, 255, 0.1)",
+                          backdropFilter: "blur(10px)",
+                          "&:hover": {
+                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                          },
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        <ChevronRight fontSize="medium" />
+                      </IconButton>
+                      <IconButton
+                        onClick={() => setSelectedImageIndex(null)}
+                        sx={{
+                          position: "absolute",
+                          top: 16,
+                          right: 16,
+                          color: "white",
+                          backgroundColor: "rgba(255, 255, 255, 0.1)",
+                          backdropFilter: "blur(10px)",
+                          "&:hover": {
+                            backgroundColor: "rgba(255, 255, 255, 0.2)",
+                          },
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        <Close fontSize="medium" />
+                      </IconButton>
+                    </>
+                  )}
+                </Box>
+              </Fade>
+            </Modal>
           </Box>
         </Content>
       </DrawerAppBar>

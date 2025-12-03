@@ -28,10 +28,10 @@ const navItems = [
     label: "ABOUT",
     path: "/about",
   },
-  {
-    label: "GALLERY",
-    path: "/gallery",
-  },
+  // {
+  //   label: "GALLERY",
+  //   path: "/gallery",
+  // },
   {
     label: "FAQs",
     path: "/faqs",

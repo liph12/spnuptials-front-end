@@ -1,17 +1,16 @@
 import DrawerAppBar from "./layouts/DrawerAppBar";
 import { Box, Typography, Stack, Button } from "@mui/material";
-import { blue } from "@mui/material/colors";
-import HeroBGv1 from "../assets/ps-bg-hero-home-v1.jpg";
-import HeroBG from "../assets/ps-bg-hero-home.jpg";
+import HeroBGMobilev1 from "../assets/ps-bg-hero-home-mobile-v1.jpg";
+import HeroBGv2 from "../assets/ps-bg-hero-home-v2.jpg";
 import { useState, useEffect } from "react";
 import Content from "./layouts/Content";
 import StyledLineSeparator from "./utils/StyledLineSeparator";
 import { Link } from "react-router-dom";
-import StyledText from "./utils/StyledText";
 import StyledTextLight from "./utils/StyledTextLight";
 import Footer from "./layouts/Footer";
 import { useAppContext } from "../providers/AppProvider";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import InvitationModal from "./utils/InvitaionModal";
 
 interface Countdown {
   days: number;
@@ -58,28 +57,29 @@ export default function Home() {
 
   return (
     <>
+      <InvitationModal />
       <DrawerAppBar>
         <Content>
           <Box
             sx={{
               width: "100%",
-              height: "100vh",
-              backgroundImage: `url(${desktop ? HeroBGv1 : HeroBG})`,
+              height: desktop ? "120vh" : "100vh",
+              backgroundImage: `url(${desktop ? HeroBGv2 : HeroBGMobilev1})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              // paddingBottom: 10,
             }}
           >
             <Box
               sx={{
                 position: "absolute",
                 width: "100%",
-                height: "100vh",
+                height: desktop ? "120vh" : "100vh",
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
+
                 zIndex: 1,
               }}
             />

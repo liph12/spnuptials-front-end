@@ -9,7 +9,7 @@ import sponsorsAttire from "../../../assets/ps-sponsors-attire-v2.png";
 import gcash from "../../../assets/ps-gcash.jpeg";
 import bpi from "../../../assets/ps-bpi.jpeg";
 
-const hexColors = ["#81d4fa", "#b3e5fc", "#e1f5fe", "#fcfeff", "#fff"];
+const hexColors = ["#81d4fa", "#b3e5fc", "#d6ebf7ff", "#d7f1fdff"];
 
 export default function Details() {
   const { desktop } = useAppContext();
@@ -47,8 +47,11 @@ export default function Details() {
           Attire Guide
         </Typography>
         <StyledText fontSize={desktop ? 17 : 15}>
-          We would love to see you in your <b>SEMI-FORMAL</b>. We encourage you
-          to dress according to our wedding color.
+          We encourage you to dress according to our wedding color.
+        </StyledText>
+        <StyledText fontSize={desktop ? 17 : 15}>
+          Please refrain from wearing jeans, tshirts, white clothes and
+          revealing clothes.
         </StyledText>
         <Box
           sx={{
@@ -63,8 +66,8 @@ export default function Details() {
             <Box
               key={index}
               sx={{
-                height: desktop ? 50 : 40,
-                width: desktop ? 50 : 40,
+                height: desktop ? 80 : 50,
+                width: desktop ? 80 : 50,
                 border: "1px solid #eee",
                 borderRadius: "50%",
                 backgroundColor: c,
@@ -77,15 +80,19 @@ export default function Details() {
         </Box>
         <Box sx={{ mt: 3 }}>
           <StyledTextCursiveMd>Guests</StyledTextCursiveMd>
+          <StyledText fontSize={desktop ? 17 : 15}>
+            Gentlemen: Formal / Semi-formal attire <br />
+            Ladies: Long gown / Dress with no floral prints
+          </StyledText>
           <img src={guestsAttire} height={desktop ? 300 : 200} />
         </Box>
         <Box sx={{ mt: 3 }}>
           <StyledTextCursiveMd>Principal Sponsors</StyledTextCursiveMd>
-          <img src={sponsorsAttire} height={desktop ? 300 : 200} />
           <StyledText fontSize={desktop ? 17 : 15}>
-            Gentlemen: Traditional Barong with Black Pants Ladies: Floor-length
-            gown / Dress
+            Gentlemen: Traditional Barong with Black Pants <br />
+            Ladies: Floor-length gown / Dress
           </StyledText>
+          <img src={sponsorsAttire} height={desktop ? 300 : 200} />
         </Box>
         <StyledLineSeparator width={250} color={blue[900]} />
         <Box sx={{ mt: 3 }}>
