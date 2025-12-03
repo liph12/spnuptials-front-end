@@ -39,7 +39,7 @@ const navItems = [
 ];
 
 const checkIsLight = (path: string) =>
-  ["/about", "/about/details", "/about/venue"].includes(path);
+  ["/", "/about", "/about/details", "/about/venue"].includes(path);
 
 export default function DrawerAppBar({
   children,
@@ -158,7 +158,7 @@ export default function DrawerAppBar({
                       textTransform: "none",
                       borderRadius: 0,
                       borderBottom: isRoot
-                        ? `3px solid ${blue[800]}`
+                        ? `3px solid #fff`
                         : currentPath.includes(item.path)
                         ? item.path !== "/"
                           ? `3px solid ${isLight ? "#fff" : blue[800]}`
