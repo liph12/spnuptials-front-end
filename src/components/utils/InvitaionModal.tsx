@@ -36,7 +36,42 @@ const invitations = [
     nameB: "Family",
     combined: true,
   },
+  {
+    id: "maam-marmi-jane-taboada",
+    nameA: "Ma'am Marmi Jane A. Taboada",
+    nameB: "",
+    combined: false,
+  },
+  {
+    id: "maam-pinky-shanyne-lirasan",
+    nameA: "Ma'am Pinky Shanyne C. Lirasan",
+    nameB: "",
+    combined: false,
+  },
+  {
+    id: "sir-alfred-elison",
+    nameA: "Sir Alfred B. Elison",
+    nameB: "",
+    combined: false,
+  },
+  {
+    id: "br907-family",
+    nameA: "BR907 Family",
+    nameB: "",
+    combined: false,
+  },
+  {
+    id: "boyonas-family",
+    nameA: "Boyonas Family",
+    nameB: "",
+    combined: false,
+  },
 ];
+
+// Marmi Jane A. Taboada
+// Pinky Shanyne C. Lirasan
+// Alfred B. Elison
+// BR907 FAM
 
 export default function InvitationModal() {
   const [searchParams] = useSearchParams();
