@@ -36,6 +36,18 @@ const invitations = [
     nameB: "Family",
     combined: true,
   },
+  {
+    id: "inv-115",
+    nameA: "Sir Anthony Leuterio",
+    nameB: "Family",
+    combined: true,
+  },
+  {
+    id: "inv-116",
+    nameA: "Sir Anthony Leuterio",
+    nameB: "Family",
+    combined: true,
+  },
 ];
 
 export default function InvitationModal() {
