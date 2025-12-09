@@ -167,6 +167,19 @@ export default function Nuptials() {
               Mrs. Honoria Urdaneta
             </StyledText>
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <StyledText fontSize={desktop ? 16 : 13}>
+              Mr. Laren L.Pael
+            </StyledText>
+            <StyledText fontSize={desktop ? 16 : 13}>
+              Mrs. Marina S.Pael
+            </StyledText>
+          </Box>
         </Box>
         <Box sx={{ my: 3 }}>
           <Typography

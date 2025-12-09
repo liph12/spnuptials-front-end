@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography, Link } from "@mui/material";
 import StyledText from "../../utils/StyledText";
-import ChurchRoundedIcon from "@mui/icons-material/ChurchRounded";
+// import ChurchRoundedIcon from "@mui/icons-material/ChurchRounded";
 import BrunchDiningRoundedIcon from "@mui/icons-material/BrunchDiningRounded";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import StyledLineSeparator from "../../utils/StyledLineSeparator";
@@ -38,7 +38,7 @@ export default function Venue() {
             gap: 5,
           }}
         >
-          <Box sx={{ mb: 3 }}>
+          {/* <Box sx={{ mb: 3 }}>
             <StyledTextCursiveSm>Church</StyledTextCursiveSm>
             <ChurchRoundedIcon sx={{ fontSize: 60, color: blue[800], my: 4 }} />
             <StyledText fontSize={desktop ? 18 : 16}>
@@ -66,9 +66,9 @@ export default function Venue() {
                 Go to Church
               </Button>
             </Link>
-          </Box>
+          </Box> */}
           <Box sx={{ mb: 3 }}>
-            <StyledTextCursiveSm>Reception</StyledTextCursiveSm>
+            <StyledTextCursiveSm>Reception and Ceremony</StyledTextCursiveSm>
             <BrunchDiningRoundedIcon
               sx={{ fontSize: 60, color: blue[800], my: 4 }}
             />
@@ -94,12 +94,12 @@ export default function Venue() {
                 }}
                 startIcon={<ArrowOutwardIcon />}
               >
-                Go to Reception
+                Go to Venue
               </Button>
             </Link>
           </Box>
         </Box>
-        <StyledLineSeparator width={desktop ? 400 : 120} color={blue[900]} />
+        <StyledLineSeparator width={desktop ? 200 : 120} color={blue[900]} />
       </Container>
     </Box>
   );
