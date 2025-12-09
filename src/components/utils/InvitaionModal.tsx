@@ -96,6 +96,18 @@ const invitations = [
     nameB: "",
     combined: false,
   },
+  {
+    id: "ptr-jessie-garzon",
+    nameA: "Ptr. Jessie M. Garzon",
+    nameB: "",
+    combined: false,
+  },
+  {
+    id: "ptr-paul-barcenas",
+    nameA: "Ptr. Paul Barcenas",
+    nameB: "",
+    combined: false,
+  },
 ];
 
 export default function InvitationModal() {
