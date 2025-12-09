@@ -108,6 +108,12 @@ const invitations = [
     nameB: "",
     combined: false,
   },
+  {
+    id: "mr-and-mrs-noel-tolibas",
+    nameA: "Mr. & Mrs. Noel Tolibas",
+    nameB: "Family",
+    combined: true,
+  },
 ];
 
 export default function InvitationModal() {
